@@ -2,40 +2,81 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Knowing How Without Knowing What</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
 <style>
-:root{--bg:#f2f4f7;--card:#fff;--ink:#1b2430;--mute:#5a6675;--acc:#0f6b6b;--line:#d5dbe3;--key:#e4e9ef}
-@media (prefers-color-scheme:dark){:root{--bg:#10161d;--card:#18212b;--ink:#e8edf3;--mute:#9aa7b6;--acc:#4fc3bd;--line:#2c3947;--key:#223040}}
+:root{
+  --bg:#ffffff;--panel:#f3f5f9;--ink:#1c2433;--mute:#5b6678;--navy:#14284b;--blue:#2c5aa0;
+  --line:#dde2ea;--key:#eef1f6;--hero:#14284b;--hero-ink:#ffffff;--hero-mute:#a9b9d6;
+  --sans:"Inter",system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  --padx:max(6vw,calc((100vw - 1240px)/2));
+  --top:clamp(32px,8vh,96px);
+}
+@media (prefers-color-scheme:dark){:root{
+  --bg:#0f1624;--panel:#18223a;--ink:#e6ebf4;--mute:#9aa7bd;--navy:#dbe5f7;--blue:#7fa6e0;
+  --line:#26324a;--key:#1b2740;--hero:#0a1120;--hero-ink:#ffffff;--hero-mute:#8da3c7;}}
 *{box-sizing:border-box}
 html,body{height:100%;margin:0}
-body{background:var(--bg);color:var(--ink);font:clamp(18px,2.2vw,26px)/1.5 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;overflow:hidden}
-.deck{height:100%;position:relative}
-.slide{position:absolute;inset:0;padding:6vh 7vw 12vh;display:none;flex-direction:column;justify-content:center;max-width:1200px;margin:0 auto}
+body{background:var(--bg);color:var(--ink);font:400 clamp(18px,1.1vw + 12px,36px)/1.5 var(--sans);overflow:hidden;
+  -webkit-font-smoothing:antialiased;font-feature-settings:"cv11","ss03"}
+.deck{position:fixed;inset:0}
+.slide{position:absolute;inset:0;display:none;flex-direction:column;justify-content:flex-start;
+  padding:calc(var(--top) + env(safe-area-inset-top,0px)) var(--padx) calc(clamp(52px,8vh,76px) + 4vh + env(safe-area-inset-bottom,0px));
+  overflow-y:auto}
 .slide.on{display:flex}
-h1{font:600 clamp(30px,4.6vw,58px)/1.15 Georgia,"Times New Roman",serif;margin:0 0 .5em;letter-spacing:-.01em}
-.cite{color:var(--acc);font-size:.72em;margin:-.2em 0 1em}
-ul{list-style:none;margin:0;padding:0;max-width:34em}
-li{padding:.35em 0 .35em 1.1em;position:relative}
-li::before{content:"";position:absolute;left:0;top:.95em;width:.45em;height:.45em;border-radius:50%;background:var(--acc)}
-li b{font-weight:650}
-.take{margin-top:1.2em;padding:.7em 1em;border-left:4px solid var(--acc);background:var(--card);max-width:34em;font-size:.9em}
-.who{position:absolute;right:7vw;top:6vh;font-size:.65em;color:var(--mute);border:1px solid var(--line);border-radius:999px;padding:.15em .8em}
-.kb{margin:1.4em 0 0;display:flex;flex-direction:column;gap:6px}
-.kb div{display:flex;gap:6px}
-.kb span{width:clamp(22px,3.4vw,44px);height:clamp(22px,3.4vw,44px);background:var(--key);border:1px solid var(--line);border-radius:6px}
-.kb div:nth-child(2){margin-left:2.2%}.kb div:nth-child(3){margin-left:5%}
-nav{position:fixed;left:0;right:0;bottom:0;display:flex;justify-content:center;align-items:center;gap:1.2em;padding:1.2vh 0;color:var(--mute);font-size:16px}
-nav button{font:inherit;color:var(--ink);background:var(--card);border:1px solid var(--line);border-radius:8px;padding:.4em 1.1em;cursor:pointer}
-nav button:focus-visible{outline:3px solid var(--acc);outline-offset:2px}
-@media (max-width:700px){.who{position:static;display:inline-block;margin-bottom:1em}}
+h1{font:700 clamp(30px,3.2vw + 12px,72px)/1.15 var(--sans);letter-spacing:-.022em;color:var(--navy);
+  margin:0 0 .9em;max-width:100%;text-wrap:balance}
+.cite{color:var(--blue);font-size:.8em;line-height:1.45;font-weight:500;margin:-.4em 0 1.3em;max-width:60em}
+ul{list-style:none;margin:0;padding:0;width:100%;flex:1 1 auto;display:flex;flex-direction:column;border-top:1px solid var(--line);font-size:1.2em}
+li{position:relative;flex:1 1 auto;display:flex;align-items:center;padding:.55em 0 .55em 1.6em;border-bottom:1px solid var(--line)}
+li::before{content:"";position:absolute;left:.1em;top:50%;margin-top:-.21em;width:.42em;height:.42em;background:var(--blue);border-radius:1px}
+li b{font-weight:650;color:var(--navy)}
+.take{flex:0 0 auto;margin:1.4em 0 0;padding:.9em 1.3em;max-width:none;font-size:1.15em;background:var(--panel);border-left:4px solid var(--navy);
+  border-radius:0 8px 8px 0;font-weight:600;color:var(--navy)}
+.who{position:absolute;right:var(--padx);top:calc(var(--top) + env(safe-area-inset-top,0px));font-size:.66em;font-weight:600;
+  color:var(--blue);border:1px solid var(--blue);border-radius:6px;padding:.2em .8em;line-height:1.5}
+.slide.title{background:var(--hero);color:var(--hero-ink);justify-content:center;padding-top:0;padding-bottom:10vh}
+.slide.title h1{color:var(--hero-ink);font-size:clamp(34px,5.4vw + 6px,96px);line-height:1.08;letter-spacing:-.03em;max-width:12em;margin:0}
+.slide.title h1::before{content:"";display:block;width:72px;height:6px;background:var(--hero-mute);margin-bottom:.6em;border-radius:3px}
+.slide.intro ul{font-size:1.35em}
+.kb{flex:0 0 auto;margin:2em 0 0;display:flex;flex-direction:column;gap:clamp(5px,.5vw,9px)}
+.kb div{display:flex;gap:clamp(5px,.5vw,9px)}
+.kb span{width:clamp(22px,4.4vw,72px);height:clamp(22px,4.4vw,72px);background:var(--key);border:1px solid var(--line);border-radius:6px}
+.kb div:nth-child(2){margin-left:2.8%}.kb div:nth-child(3){margin-left:6.4%}
+.bar{position:fixed;left:0;top:0;height:4px;background:var(--blue);transition:width .25s ease;z-index:6}
+nav{position:fixed;left:0;right:0;bottom:0;height:clamp(52px,8vh,76px);display:flex;align-items:center;justify-content:space-between;
+  padding:0 var(--padx) env(safe-area-inset-bottom,0px);background:var(--bg);border-top:1px solid var(--line);color:var(--mute);font-size:15px;z-index:5}
+nav .btns{display:flex;gap:10px}
+nav button{font:inherit;font-weight:600;color:var(--navy);background:transparent;border:1px solid var(--line);border-radius:6px;
+  padding:.45em 1.2em;cursor:pointer;transition:background .15s,border-color .15s}
+nav button:hover{background:var(--panel);border-color:var(--blue)}
+nav button:focus-visible{outline:3px solid var(--blue);outline-offset:2px}
+nav span{font-variant-numeric:tabular-nums;font-weight:500}
+body.t nav{background:var(--hero);border-color:rgba(255,255,255,.15);color:var(--hero-mute)}
+body.t nav button{color:var(--hero-ink);border-color:rgba(255,255,255,.3)}
+body.t nav button:hover{background:rgba(255,255,255,.1)}
+body.t .bar{background:var(--hero-mute)}
+@media (max-width:700px){
+  :root{--top:clamp(28px,6vh,60px)}
+  .who{position:static;align-self:flex-start;margin-bottom:.9em}
+}
+@media (min-width:701px){.who+h1{padding-right:8em}}
+@media (max-height:520px){:root{--top:4vh}.slide{padding-bottom:18vh}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
 </style>
 </head>
-<body>
+<body class="t">
+<div class="bar" id="bar"></div>
 <main class="deck" id="deck">
 
-<section class="slide on">
+<section class="slide title on">
   <h1>Knowing How Without Knowing What</h1>
+</section>
+
+<section class="slide intro">
   <ul>
     <li>Typists hit about 6 keys a second, yet can’t say which finger presses which key.</li>
     <li><b>Our question:</b> how can we perform a skill without being able to describe what we know?</li>
@@ -146,14 +187,23 @@ nav button:focus-visible{outline:3px solid var(--acc);outline-offset:2px}
 
 </main>
 <nav>
-  <button id="prev" aria-label="Previous slide">Previous</button>
-  <span id="count" aria-live="polite">1 / 10</span>
-  <button id="next" aria-label="Next slide">Next</button>
+  <span id="count" aria-live="polite">1 / 11</span>
+  <div class="btns">
+    <button id="prev" aria-label="Previous slide">Previous</button>
+    <button id="next" aria-label="Next slide">Next</button>
+  </div>
 </nav>
 <script>
 (function(){
-  var s=[].slice.call(document.querySelectorAll('.slide')),i=0,c=document.getElementById('count');
-  function go(n){i=Math.max(0,Math.min(s.length-1,n));s.forEach(function(e,k){e.classList.toggle('on',k===i)});c.textContent=(i+1)+' / '+s.length}
+  var s=[].slice.call(document.querySelectorAll('.slide')),i=0,
+      c=document.getElementById('count'),b=document.getElementById('bar');
+  function go(n){
+    i=Math.max(0,Math.min(s.length-1,n));
+    s.forEach(function(e,k){e.classList.toggle('on',k===i);if(k===i)e.scrollTop=0});
+    c.textContent=(i+1)+' / '+s.length;
+    b.style.width=((i+1)/s.length*100)+'%';
+    document.body.classList.toggle('t',i===0);
+  }
   document.getElementById('prev').onclick=function(){go(i-1)};
   document.getElementById('next').onclick=function(){go(i+1)};
   document.addEventListener('keydown',function(e){
@@ -161,6 +211,14 @@ nav button:focus-visible{outline:3px solid var(--acc);outline-offset:2px}
     else if(e.key==='ArrowLeft'||e.key==='PageUp'){go(i-1)}
     else if(e.key==='Home'){go(0)}else if(e.key==='End'){go(s.length-1)}
   });
+  var x=null;
+  document.addEventListener('touchstart',function(e){x=e.touches[0].clientX},{passive:true});
+  document.addEventListener('touchend',function(e){
+    if(x===null)return;var d=e.changedTouches[0].clientX-x;x=null;
+    if(Math.abs(d)>60)go(d<0?i+1:i-1);
+  },{passive:true});
+  [].forEach.call(document.querySelectorAll('li'),function(l){var w=document.createElement('span');while(l.firstChild)w.appendChild(l.firstChild);l.appendChild(w)});
+  go(0);
 })();
 </script>
 </body>
