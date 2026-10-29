@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Knowing How Without Knowing What</title>
+<style>
+:root{--bg:#f2f4f7;--card:#fff;--ink:#1b2430;--mute:#5a6675;--acc:#0f6b6b;--line:#d5dbe3;--key:#e4e9ef}
+@media (prefers-color-scheme:dark){:root{--bg:#10161d;--card:#18212b;--ink:#e8edf3;--mute:#9aa7b6;--acc:#4fc3bd;--line:#2c3947;--key:#223040}}
+*{box-sizing:border-box}
+html,body{height:100%;margin:0}
+body{background:var(--bg);color:var(--ink);font:clamp(18px,2.2vw,26px)/1.5 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;overflow:hidden}
+.deck{height:100%;position:relative}
+.slide{position:absolute;inset:0;padding:6vh 7vw 12vh;display:none;flex-direction:column;justify-content:center;max-width:1200px;margin:0 auto}
+.slide.on{display:flex}
+h1{font:600 clamp(30px,4.6vw,58px)/1.15 Georgia,"Times New Roman",serif;margin:0 0 .5em;letter-spacing:-.01em}
+.cite{color:var(--acc);font-size:.72em;margin:-.2em 0 1em}
+ul{list-style:none;margin:0;padding:0;max-width:34em}
+li{padding:.35em 0 .35em 1.1em;position:relative}
+li::before{content:"";position:absolute;left:0;top:.95em;width:.45em;height:.45em;border-radius:50%;background:var(--acc)}
+li b{font-weight:650}
+.take{margin-top:1.2em;padding:.7em 1em;border-left:4px solid var(--acc);background:var(--card);max-width:34em;font-size:.9em}
+.who{position:absolute;right:7vw;top:6vh;font-size:.65em;color:var(--mute);border:1px solid var(--line);border-radius:999px;padding:.15em .8em}
+.kb{margin:1.4em 0 0;display:flex;flex-direction:column;gap:6px}
+.kb div{display:flex;gap:6px}
+.kb span{width:clamp(22px,3.4vw,44px);height:clamp(22px,3.4vw,44px);background:var(--key);border:1px solid var(--line);border-radius:6px}
+.kb div:nth-child(2){margin-left:2.2%}.kb div:nth-child(3){margin-left:5%}
+nav{position:fixed;left:0;right:0;bottom:0;display:flex;justify-content:center;align-items:center;gap:1.2em;padding:1.2vh 0;color:var(--mute);font-size:16px}
+nav button{font:inherit;color:var(--ink);background:var(--card);border:1px solid var(--line);border-radius:8px;padding:.4em 1.1em;cursor:pointer}
+nav button:focus-visible{outline:3px solid var(--acc);outline-offset:2px}
+@media (max-width:700px){.who{position:static;display:inline-block;margin-bottom:1em}}
+</style>
+</head>
+<body>
+<main class="deck" id="deck">
+
+<section class="slide on">
+  <h1>Knowing How Without Knowing What</h1>
+  <ul>
+    <li>Typists hit about 6 keys a second, yet can’t say which finger presses which key.</li>
+    <li><b>Our question:</b> how can we perform a skill without being able to describe what we know?</li>
+    <li>Quick demo: write the QWERTY letters on a blank keyboard, from memory.</li>
+  </ul>
+  <div class="kb" aria-hidden="true">
+    <div><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+    <div><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+    <div><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+  </div>
+</section>
+
+<section class="slide">
+  <h1>Key terms: two kinds of knowing</h1>
+  <ul>
+    <li><b>Explicit knowledge:</b> we can recall it and put it into words.</li>
+    <li><b>Implicit knowledge:</b> it shows up in performance, not in description.</li>
+    <li><b>Automaticity:</b> a practised skill runs without attention.</li>
+    <li><b>Hierarchical control:</b> an outer loop picks the words, an inner loop picks keys and fingers.</li>
+  </ul>
+</section>
+
+<section class="slide">
+  <h1>Where this fits in our course</h1>
+  <ul>
+    <li>Implicit vs explicit memory: different systems, different ways to test them.</li>
+    <li>Amnesia: patients can learn skills without remembering the practice.</li>
+    <li>Forgetting: was it lost, hard to retrieve, or never encoded?</li>
+    <li>Skill stages: novices think it through, experts just do it.</li>
+  </ul>
+</section>
+
+<section class="slide">
+  <span class="who">Presenter 1</span>
+  <h1>Study 1: Thinking about your hands slows them down</h1>
+  <p class="cite">Logan &amp; Crump (2009). Psychological Science, 20(10), 1296–1300.</p>
+  <ul>
+    <li>16 touch typists typed words after a cue: whole word, or only left- or right-hand letters.</li>
+    <li>Hand cues slowed typing by about 47%. Colour cues caused no slowdown.</li>
+    <li>Continuous text: about 80 wpm normally, about 14 wpm for one-hand letters.</li>
+  </ul>
+  <p class="take">The typing system uses hand–letter knowledge but can’t report it.</p>
+</section>
+
+<section class="slide">
+  <span class="who">Presenter 2</span>
+  <h1>Study 2: Typists can’t fill in a blank keyboard</h1>
+  <p class="cite">Snyder, Ashitaka, Shimada, Ulrich &amp; Logan (2014). Attention, Perception, &amp; Psychophysics, 76(1), 162–171.</p>
+  <ul>
+    <li>100 typists (about 72 wpm) placed only 57% of letters correctly, yet typed at about 94% accuracy.</li>
+    <li>Even a recognition test reached only about 85%.</li>
+    <li>24 typists learned Dvorak for about 1.5 hours: their recall was no better than for QWERTY.</li>
+  </ul>
+  <p class="take">Authors’ reading: explicit key knowledge may never be learned.</p>
+</section>
+
+<section class="slide">
+  <span class="who">Presenter 3</span>
+  <h1>Study 3: Same result, even for messy typists</h1>
+  <p class="cite">Logan, Ulrich &amp; Lindsey (2016). J. Exp. Psychology: Human Perception &amp; Performance, 42(12), 2084–2102.</p>
+  <ul>
+    <li>48 typists, standard vs nonstandard finger use. Only 10 of the 24 “standard” typists really were.</li>
+    <li>Both groups recalled about 15–17 of 26 letters, but typed about 98% of letters correctly.</li>
+    <li>Hand cues slowed both groups by about 440 ms.</li>
+    <li>Nonstandard typists relied more on vision.</li>
+  </ul>
+</section>
+
+<section class="slide">
+  <h1>Why is it still unanswered?</h1>
+  <ul>
+    <li>The studies show explicit knowledge is poor, not why: forgotten, never encoded, or hard to reach?</li>
+    <li>“Never learned” comes from skilled QWERTY typists learning Dvorak, not true novices.</li>
+    <li>Test format matters: mimicking typing raised cued recall (about 79% vs 67%).</li>
+    <li>Every study is a snapshot. None follows one learner over time.</li>
+  </ul>
+</section>
+
+<section class="slide">
+  <h1>Our experiment: watch the knowledge form</h1>
+  <ul>
+    <li><b>Question:</b> as people learn to touch-type, does explicit key knowledge rise then fade, or never form?</li>
+    <li><b>Who:</b> about 20 hunt-and-peck typists learning touch typing over 5 short sessions.</li>
+    <li><b>Each session:</b> typing speed and accuracy, plus key recall in two formats: pen and paper vs “air typing” with hands on the keyboard.</li>
+    <li><b>Measures:</b> letters placed correctly (of 26), wpm, accuracy.</li>
+  </ul>
+</section>
+
+<section class="slide">
+  <h1>What each result would tell us</h1>
+  <ul>
+    <li>Recall rises, then falls as speed grows: knowledge fades with automaticity.</li>
+    <li>Recall stays low while speed climbs: never encoded.</li>
+    <li>Air-typing recall beats paper recall: part of the “gap” is the test.</li>
+    <li>Control: counterbalanced test order; session 1 is each person’s baseline.</li>
+  </ul>
+</section>
+
+<section class="slide">
+  <h1>Limits, and the takeaway</h1>
+  <ul>
+    <li>Small sample and 5 sessions can’t settle the debate.</li>
+    <li>Weeks of practice are not years; volunteers are self-selected.</li>
+    <li>Poor recall alone doesn’t prove implicit knowledge. We need converging tests.</li>
+  </ul>
+  <p class="take">Skill can run ahead of what we can explain.</p>
+</section>
+
+</main>
+<nav>
+  <button id="prev" aria-label="Previous slide">Previous</button>
+  <span id="count" aria-live="polite">1 / 10</span>
+  <button id="next" aria-label="Next slide">Next</button>
+</nav>
+<script>
+(function(){
+  var s=[].slice.call(document.querySelectorAll('.slide')),i=0,c=document.getElementById('count');
+  function go(n){i=Math.max(0,Math.min(s.length-1,n));s.forEach(function(e,k){e.classList.toggle('on',k===i)});c.textContent=(i+1)+' / '+s.length}
+  document.getElementById('prev').onclick=function(){go(i-1)};
+  document.getElementById('next').onclick=function(){go(i+1)};
+  document.addEventListener('keydown',function(e){
+    if(e.key==='ArrowRight'||e.key===' '||e.key==='PageDown'){e.preventDefault();go(i+1)}
+    else if(e.key==='ArrowLeft'||e.key==='PageUp'){go(i-1)}
+    else if(e.key==='Home'){go(0)}else if(e.key==='End'){go(s.length-1)}
+  });
+})();
+</script>
+</body>
+</html>
